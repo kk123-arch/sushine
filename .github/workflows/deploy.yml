@@ -47,9 +47,9 @@ jobs:
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
-        with:
-          # 首次运行时自动开启 Pages（不用再去 Settings → Pages 手点）
-          enablement: true
+        # ⚠️ 不要加 enablement: true
+        # 默认的 GITHUB_TOKEN 没有建站权限，加了会在这一步 403 失败。
+        # Pages 需要到 Settings → Pages → Source 选「GitHub Actions」手动开启一次（只需一次）。
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
